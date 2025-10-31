@@ -1,0 +1,41 @@
+.chat {
+	min-width: 60%;
+	width: 55rem;
+	padding: 0 3rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.chat__form {
+	width: 80%;
+	display: flex;
+	gap: 0.5rem;
+
+	.chat__input {
+		width: 100%;
+		padding: 0.3rem;
+		border-radius: 5px;
+		border: none;
+		background-color: var(--background-color);
+		color: var(--font-color);
+		font-size: 1rem;
+        padding-left: 1rem;
+		font-family: 'Press Start 2P', monospace;
+	}
+
+	.chat__input:focus {
+		outline: none;
+		box-shadow: none;
+	}
+
+	.chat__button {
+		font-family: 'Press Start 2P', monospace;
+		font-size: 0.7rem;
+		padding: 1.2rem;
+		border-radius: 5px;
+		border: none;
+		background-color: var(--primary-color);
+		color: var(--font-color);
+	}
+}

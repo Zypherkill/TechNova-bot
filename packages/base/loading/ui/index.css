@@ -1,0 +1,38 @@
+.loading {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	position: relative;
+}
+
+/* Grundstil för kugghjul */
+.gear {
+	width: 40px;
+	height: 40px;
+	color: #888;
+}
+
+/* Snurr-animation */
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.gear1 {
+	animation: spin 2s linear infinite;
+	z-index: 2; /* översta kugghjulet */
+}
+
+.gear2 {
+	width: 32px;
+	height: 32px;
+	color: #aaa;
+	animation: spin 2s linear infinite reverse;
+	margin-left: -0.5rem; /* ← Överlapp */
+	margin-top: 10px; /* Lite lägre */
+	z-index: 1; /* understa kugghjulet */
+}

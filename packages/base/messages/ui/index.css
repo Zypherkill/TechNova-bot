@@ -1,0 +1,134 @@
+/* 🎾 MESSAGES CONTAINER */
+.chat__messages {
+	height: 80vh;
+	width: 80%;
+	padding: 2rem 3rem;
+	margin-bottom: 1rem;
+	border-radius: 5px;
+	background-color: var(--background-color);
+	overflow-y: auto;
+	word-break: break-word;
+
+	/* ✨ Modern scrollbar styling ✨ */
+	scrollbar-width: thin;
+	scrollbar-color: #555 #1b1b1b; /* För Firefox */
+	mask-image: linear-gradient(
+		to bottom,
+		transparent 0%,
+		black 0%,
+		black 95%,
+		transparent 100%
+	);
+}
+
+/* WebKit scrollbars (Chrome, Edge, Safari) */
+.chat__messages::-webkit-scrollbar {
+	width: 10px;
+}
+
+.chat__messages::-webkit-scrollbar-track {
+	background: #1b1b1b;
+	border-radius: 10px;
+}
+
+.chat__messages::-webkit-scrollbar-thumb {
+	background: linear-gradient(180deg, var(--accent-color, #3b82f6), #2563eb);
+	border-radius: 10px;
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+	transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chat__messages::-webkit-scrollbar-thumb:hover {
+	background: linear-gradient(180deg, var(--accent-color, #60a5fa), #3b82f6);
+	box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+}
+
+/* 🎾 TITLE */
+.chat__title {
+	text-align: center;
+	color: white;
+	font-size: 2.5rem;
+	padding-bottom: 1rem;
+}
+
+/* 🎾 MESSAGE BASE */
+.message {
+	display: flex;
+	margin-bottom: 1rem;
+}
+
+.message__bubble {
+	max-width: 70%;
+	padding: 0.7rem 1.2rem;
+	border-radius: 5px;
+	color: #ffffff;
+	position: relative;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+	white-space: pre-wrap;
+	word-break: break-word;
+	font-size: 0.8rem;
+
+	.message__sender {
+		font-size: 1.1rem;
+		letter-spacing: 1.5px;
+		font-weight: bold;
+		display: block;
+		margin-bottom: 0.25rem;
+		color: #ffffff;
+	}
+}
+
+/* 🎾 USER MESSAGE (höger sida) */
+.message--Användare {
+	justify-content: flex-end;
+
+	.message__bubble {
+		background: var(--primary-color);
+		font-weight: 500;
+	}
+
+	.message__bubble::after {
+		content: '';
+		position: absolute;
+		right: 0;
+		top: 50%;
+		width: 0;
+		height: 0;
+		border: 30px solid transparent;
+		border-left-color: var(--primary-color);
+		border-right: 0;
+		border-bottom: 0;
+		transform: translate(80%, -50%);
+	}
+
+	.message__sender {
+		color: rgb(255, 238, 0);
+	}
+}
+
+/* 🎾 ASSISTANT MESSAGE (vänster sida) */
+.message--TechNova {
+	justify-content: flex-start;
+
+	.message__bubble {
+		background-color: var(--bot-bubble);
+	}
+
+	.message__bubble::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 50%;
+		width: 0;
+		height: 0;
+		border: 30px solid transparent;
+		border-right-color: var(--bot-bubble);
+		border-left: 0;
+		border-bottom: 0;
+		transform: translate(-80%, -50%);
+	}
+
+	.message__sender {
+		color: rgb(81, 255, 0);
+	}
+}
